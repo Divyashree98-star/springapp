@@ -1,4 +1,5 @@
 pipeline {
+    agent any
 
     stages {
 
@@ -13,6 +14,7 @@ pipeline {
                 sh 'mvn clean package -DskipTests'
             }
         }
+    }
 
     post {
         success {
