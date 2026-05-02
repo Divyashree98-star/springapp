@@ -1,0 +1,25 @@
+pipeline {
+
+    stages {
+
+        stage('Checkout Code') {
+            steps {
+                git branch: 'main', url: 'https://github.com/Divyashree98-star/springapp.git'
+            }
+        }
+
+        stage('Build Maven App') {
+            steps {
+                sh 'mvn clean package -DskipTests'
+            }
+        }
+
+    post {
+        success {
+            echo "Pipeline Success 🚀"
+        }
+        failure {
+            echo "Pipeline Failed ❌"
+        }
+    }
+}
